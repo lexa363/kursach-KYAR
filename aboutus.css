@@ -15,6 +15,31 @@ body {
     margin-bottom: 0px;
 }
 
+a {
+    text-decoration: none; /* Убираем подчёркивание */
+    position: relative; /* Добавляем позиционирование */
+    
+}
+
+/* Псевдоэлемент для фона */
+a::before {
+    content: ""; /* Создаём пустой псевдоэлемент */
+    position: absolute; /* Позиционируем его относительно ссылки */
+    top: 0;
+    left: 0;
+    width: 100%; /* Занимает всю ширину ссылки */
+    height: 100%; /* Занимает всю высоту ссылки */
+    background-color: #ff69b4; /* Цвет фона (розовый) */
+    border-radius: 5px; /* Делаем фон закруглённым */
+    opacity: 0; /* Начальное состояние: фон невидим */
+    transition: opacity 0.3s; /* Анимация */
+    z-index: -1; /* Помещаем фон под текст */
+}
+
+/* При наведении делаем фон видимым */
+a:hover::before {
+    opacity: 1;
+}
 
 .header-line {
     padding-top: 50px;
@@ -28,7 +53,7 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
-
+    z-index: 2;
     margin-right: 25px;
 
     transition: color 0.3s linear;
@@ -172,6 +197,7 @@ footer .wave{
 }   
 .social,
 .menu{
+    z-index: 2;
     position: relative;
     display: flex;
     justify-content: center;
