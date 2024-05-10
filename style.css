@@ -15,6 +15,34 @@ body {
 }
 
 
+a {
+    text-decoration: none; /* Убираем подчёркивание */
+    position: relative; /* Добавляем позиционирование */
+    
+}
+
+/* Псевдоэлемент для фона */
+a::before {
+    content: ""; /* Создаём пустой псевдоэлемент */
+    position: absolute; /* Позиционируем его относительно ссылки */
+    top: 0;
+    left: 0;
+    width: 100%; /* Занимает всю ширину ссылки */
+    height: 100%; /* Занимает всю высоту ссылки */
+    background-color: #ff69b4; /* Цвет фона (розовый) */
+    border-radius: 5px; /* Делаем фон закруглённым */
+    opacity: 0; /* Начальное состояние: фон невидим */
+    transition: opacity 0.3s; /* Анимация */
+    z-index: -1; /* Помещаем фон под текст */
+}
+
+/* При наведении делаем фон видимым */
+a:hover::before {
+    opacity: 1;
+}
+
+
+
 .header-line {
     padding-top: 50px;
     display: flex;
@@ -27,7 +55,7 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 18px;
-
+    z-index: 2;
     margin-right: 25px;
 
     transition: color 0.3s linear;
@@ -509,6 +537,7 @@ body {
 }
 
 .cook-content {
+    
     display: flex;
     justify-content: space-around;
     
@@ -587,12 +616,16 @@ footer .wave{
 }   
 .social,
 .menu{
+    z-index: 2;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
     flex-wrap: wrap;/*разрешен перенос на новую строку*/
+}
+.menu:hover {
+    color: #660066;
 }
 .social li,
 .menu li{
@@ -747,8 +780,13 @@ footer p {
 
 
 
-@media (max-width: 1000px) {
-
+@media (max-width: 1025px) {
+    .nav,
+    .cart,
+    .phone,
+    .btn {
+        display: none;
+    }
     .cards-holder {
         display: block;
     }
@@ -761,10 +799,60 @@ footer p {
 
 }
 
-
+@media (max-width: 820px){
+    .img-gal,
+    .galery-up,
+    .cook-content,
+    .galery-down {
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card{
+        margin-right: auto;
+    }
+}
 
 
 @media (max-width: 778px) {
+   .header-suptitle{
+    font-size: 25px;
+   }
+    .history-holder {
+        display: block;
+    }
+
+    .menu-item {
+        width: auto;
+    }
+
+    .high {
+        display: none;
+    }
+
+    .container {
+        margin: auto 40px;
+    }
+
+    .number-item {
+        font-size: 34px;
+    }
+
+    .history-number{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 50px;
+        padding-top: 50px;
+    }
+    .card-title{
+        font-size: 15px;
+    }
+
+  
+}
+
+@media (max-width: 376px) {
 
     .history-holder {
         display: block;
@@ -794,10 +882,24 @@ footer p {
         padding-top: 50px;
     }
     .card-title{
-        font-size: 18px;
+        font-size: 15px;
     }
+
+    
 
   
 }
 
+@media (max-width: 361px)
+{
+    .cook-content img {
+        display: block;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
 
+*{
+    border: 1px solid red;
+    box-sizing: border-box;
+  }
