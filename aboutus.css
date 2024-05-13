@@ -120,7 +120,7 @@ a:hover::before {
 .header-title {
     color: #BE5AC3;
     font-family: 'Tinos', serif;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 400;
     padding-top: 74px;
     text-align: left;
@@ -395,7 +395,7 @@ header{
     }
 
     .header-title{
-        font-size: 25px;
+        font-size: 20px;
     }
 }
 
